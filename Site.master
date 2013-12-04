@@ -1,0 +1,51 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Site.master.cs" Inherits="SiteMaster" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head runat="server">
+    <title></title>
+    <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+    </style>
+</head>
+<body>
+    <form runat="server">
+    <div class="page">
+        <div class="header">
+            <asp:Image  ID="Logo" runat="server" Height="250px" Width="100%" ImageUrl="~/Resimler/Logo.jpg" />           
+            <div class="menu">
+            <asp:DataList ID="Datalistmenu" runat="server" RepeatDirection="Horizontal" 
+                    Height="10px" BackColor="Silver" Font-Bold="False" Font-Italic="False" 
+                    Font-Overline="False" Font-Strikeout="False" Font-Underline="False" 
+                    ForeColor="Silver" HorizontalAlign="Center" Font-Size="Smaller" 
+                    onselectedindexchanged="Datalistmenu_SelectedIndexChanged1" 
+                    BorderColor="Silver" GridLines="Vertical">
+                <ItemStyle BackColor="Silver" Font-Bold="False" Font-Italic="False" 
+                    Font-Overline="False" Font-Strikeout="False" Font-Underline="False" 
+                    ForeColor="White" />
+            <ItemTemplate>
+                <ul>
+                    <li><a href="<%#Eval("link") %>" ><%#Eval("MenuItem") %></a></li>
+                </ul>      
+            </ItemTemplate>
+        </asp:DataList>
+            
+
+            </Items>
+            </asp:Menu>
+            </div>
+        </div>
+        <div class="main col3">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
+        </div>
+        <div class="clear">
+        </div>
+        </div>
+    <div class="copyright">
+        bu alan site sonu için 
+    </div>
+    </form>
+</body>
+</html>
